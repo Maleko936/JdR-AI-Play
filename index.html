@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JdR AI Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>JdR AI Studio</h1>
+        <p>Table de jeu assistée par IA pour campagnes immersives et cohérentes.</p>
+      </div>
+      <button class="primary" id="new-session">Nouvelle session</button>
+    </header>
+
+    <main class="app-shell">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Contexte persistant</h2>
+          <p>Garde un résumé stable pour l'IA (stocké en local).</p>
+          <textarea id="world-context" rows="6" placeholder="Ex: Univers steampunk, conflit entre guildes, magie rare..."></textarea>
+          <button class="secondary" id="save-context">Enregistrer</button>
+        </section>
+
+        <section class="panel">
+          <h2>Personnages & PNJ</h2>
+          <ul id="characters" class="list"></ul>
+          <div class="form-row">
+            <input id="character-name" type="text" placeholder="Nom" />
+            <input id="character-role" type="text" placeholder="Rôle" />
+          </div>
+          <button class="secondary" id="add-character">Ajouter</button>
+        </section>
+
+        <section class="panel">
+          <h2>Inventaire</h2>
+          <ul id="inventory" class="list"></ul>
+          <div class="form-row">
+            <input id="item-name" type="text" placeholder="Objet" />
+            <input id="item-detail" type="text" placeholder="Détail" />
+          </div>
+          <button class="secondary" id="add-item">Ajouter</button>
+        </section>
+      </aside>
+
+      <section class="main-panel">
+        <div class="chat-panel">
+          <div class="panel-header">
+            <h2>Table de narration</h2>
+            <div class="tag">Maitre de jeu IA</div>
+          </div>
+          <div id="chat-log" class="chat-log"></div>
+          <form id="chat-form" class="chat-form">
+            <textarea id="chat-input" rows="3" placeholder="Décris l'action ou demande au MJ IA..."></textarea>
+            <button class="primary" type="submit">Envoyer</button>
+          </form>
+        </div>
+
+        <div class="stats-grid">
+          <section class="panel">
+            <h2>Fiche de personnage</h2>
+            <div class="stats">
+              <label>Nom du héros<input id="hero-name" type="text" placeholder="Elya d'Ambre" /></label>
+              <label>Classe<input id="hero-class" type="text" placeholder="Arcaniste" /></label>
+              <label>Niveau<input id="hero-level" type="number" min="1" value="3" /></label>
+              <label>Points de vie<input id="hero-hp" type="number" min="1" value="18" /></label>
+              <label>Compétence clé<input id="hero-skill" type="text" placeholder="Rituels" /></label>
+            </div>
+            <button class="secondary" id="save-hero">Sauvegarder</button>
+          </section>
+
+          <section class="panel">
+            <h2>Règles & modules</h2>
+            <div class="rule-card">
+              <h3>Système</h3>
+              <select id="system-select">
+                <option>Maison (custom)</option>
+                <option>5E compatible</option>
+                <option>Cyberpunk Light</option>
+                <option>Mythes & Enigmes</option>
+              </select>
+            </div>
+            <div class="rule-card">
+              <h3>Paramètres IA</h3>
+              <label class="toggle">
+                <input type="checkbox" id="continuity" checked />
+                <span>Continuité renforcée</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" id="inventory-aware" checked />
+                <span>Inventaire pris en compte</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" id="npc-memory" checked />
+                <span>Mémoire des PNJ</span>
+              </label>
+            </div>
+            <button class="secondary" id="export-session">Exporter le contexte</button>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Démo locale: l'IA est simulée pour présenter l'interface. Branchez vos modèles (GPT, Gemini, etc.) via une API plus tard.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
