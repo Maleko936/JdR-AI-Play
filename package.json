@@ -1,0 +1,9 @@
+{
+  "name": "jdr-ai-play",
+  "version": "0.1.0",
+  "description": "Démo UI pour table de jeu de rôle assistée par IA",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
